@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="utf-8">
+	<title>Simple Angular App</title>
+	<link rel="stylesheet" type="text/css" href="css/modern.css">
+</head>
+<body ng-controller="PhoneListCtrl">
+	<div class="grid">
+		<div class="row">
+			<div class="span3">
+				Search: <input ng-model="query">
+				<div id="status">Current filter: {{ query }}</div>
+
+				Sort by:
+				<select ng-model="orderProp">
+					<option value="name">By name</option>
+					<option value="age">By age</option>
+				</select>
+			</div>
+
+			<div class="span7">
+				<ul class="phones">
+					<li ng-repeat="phone in phones|filter:query|orderBy:orderProp">
+						{{ phone.name }}
+						<p>{{ phone.snippet }}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/lib/angular/angular.js"></script>
+	<script src="js/controllers.js"></script>
+</body>
+</html>
