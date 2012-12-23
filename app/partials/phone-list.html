@@ -1,0 +1,24 @@
+<div class="grid">
+	<div class="row">
+		<div class="span3">
+			Search: <input ng-model="query">
+			<div id="status">Current filter: {{ query }}</div>
+
+			Sort by:
+			<select ng-model="orderProp">
+				<option value="name">By name</option>
+				<option value="age">By age</option>
+			</select>
+		</div>
+
+		<div class="span7">
+			<ul class="phones">
+				<li ng-repeat="phone in phones|filter:query|orderBy:orderProp" class="thumbnail">
+					<a href="#!/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}" width="100"></a>
+					<a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+					<p>{{phone.snippet}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

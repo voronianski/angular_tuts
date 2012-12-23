@@ -3,9 +3,14 @@
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
 describe('PhoneCat App', function() {
+	it('should redirect index.html to index.html#!', function() {
+		browser().navigateTo('../../app/index.html');
+		expect(browser().location().url()).toBe('/');
+	});
+
 	describe('PhoneList view', function() {
 		beforeEach(function() {
-			browser().navigateTo('../../app/index.html');
+			browser().navigateTo('../../app/index.html#!/phones');
 		});
 
 		it('should filter the phones when user types into search', function() {
@@ -34,6 +39,26 @@ describe('PhoneCat App', function() {
 
 			expect(repeater('.phones li', 'Phone List').column('phone.name')).
 				toEqual(["MOTOROLA XOOM\u2122", "Motorola XOOM\u2122 with Wi-Fi"]);
+		});
+
+		it('should render correct phone links', function() {
+			input('query').enter('nexus');
+			element('.phones li a').click();
+			expect(browser().location().url()).toBe('/phones/nexus-s');
+		});
+	});
+	
+	describe('PhoneDetail view', function() {
+		beforeEach(function() {
+			browser().navigateTo('../../app/index.html#!/phones/nexus-s');
+		});
+
+		it('should display nexus-s page', function() {
+			expect(binding('phone.name')).toBe('Nexus S');
+		});
+
+		it('should display 4 thumbs', function() {
+			expect(repeater('.phone-thumbs li').count()).toBe(4);
 		});
 	});
 });

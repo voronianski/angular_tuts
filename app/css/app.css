@@ -1,0 +1,21 @@
+.phones {
+	list-style: none;
+}
+
+.thumbnail {
+	width: 500px;
+	min-height: 100px;
+	padding: 5px 0;
+	border-bottom: 1px solid #ddd;
+	margin: 5px 0;
+}
+
+.phone-thumbs li {
+	float: left;
+	margin: 5px;
+	list-style: none;
+}
+
+.specs {
+	clear: both;
+}

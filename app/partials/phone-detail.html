@@ -1,0 +1,37 @@
+<img ng-src="{{phone.images[0]}}" width="300">
+
+<h1>{{phone.name}}</h1>
+
+<p>{{phone.description}}</p>
+
+<ul class="phone-thumbs">
+	<li ng-repeat="img in phone.images"><img src="{{img}}" width="50"></li>
+</ul>
+
+<ul class="specs">
+	<li>
+		<div>Availability and networks</div>
+		<dl>
+			<dt>Availability</dt>
+			<dd ng-repeat="availability in phone.availability">{{availability}}</dd>
+		</dl>
+	</li>
+	<li>
+		<div>Battery</div>
+			<dl>
+				<dt>Battery type</dt>
+				<dd>{{phone.battery.type}}</dd>
+				<dt>Talk time</dt>
+				<dd>{{phone.battery.talkTime}}</dd>
+				<dt>Standby time (max)</dt>
+				<dd>{{phone.battery.standbyTime}}</dd>
+			</dl>
+	</li>
+	<li>
+		<div>Camera</div>
+		<dl>
+			<dt>Features</dt>
+			<dd>{{phone.camera.features.join(', ')}}</dd>
+		</dl>
+	</li>
+</ul>
