@@ -16,6 +16,10 @@
 	list-style: none;
 }
 
+.phone-thumbs img:hover {
+	cursor: pointer;
+}
+
 .specs {
 	clear: both;
 }
