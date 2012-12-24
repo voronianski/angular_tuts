@@ -65,7 +65,7 @@ describe('PhoneCat App', function() {
 			expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
 		});
 
-		it('should change main image when thumbnail is clicked', function() {
+		it('should swap main image when thumbnail is clicked', function() {
 			element('.phone-thumbs li:nth-child(3) img').click();
 			expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.2.jpg');
 
